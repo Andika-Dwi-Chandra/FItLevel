@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Palet Warna Utama FitLevel (Sesuai Desain Figma) -->
+    <color name="BackgroundDark">#121212</color>
+    <color name="CardDark">#1E1E1E</color>
+    <color name="CardBorder">#2C2C2C</color>
+    <color name="TextGold">#F3B026</color>
+    <color name="TextWhite">#E0E0E0</color>
+    <color name="TextHint">#808080</color>
+    <color name="ButtonBlue">#2D5D8B</color>
+    <color name="DangerRed">#C62828</color>
+</resources>

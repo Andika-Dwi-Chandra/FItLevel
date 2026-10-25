@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="140dp"
+    android:height="140dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Bingkai Luar Perisai Emas -->
+    <path
+        android:fillColor="@color/TextGold"
+        android:pathData="M50,6 L88,20 L88,48 C88,73 50,94 50,94 C50,94 12,73 12,48 L12,20 Z" />
+
+    <!-- Bagian Dalam Perisai Gelap -->
+    <path
+        android:fillColor="@color/CardDark"
+        android:pathData="M50,12 L82,24 L82,48 C82,69 50,87 50,87 C50,87 18,69 18,48 L18,24 Z" />
+
+    <!-- Aksen Bintang Level di Atas -->
+    <path
+        android:fillColor="@color/TextGold"
+        android:pathData="M50,20 L53,26 L60,27 L55,32 L56,38 L50,35 L44,38 L45,32 L40,27 L47,26 Z" />
+
+    <!-- Gagang Barbel / Dumbbell -->
+    <path
+        android:fillColor="@color/TextWhite"
+        android:pathData="M34,50 L66,50 L66,56 L34,56 Z" />
+
+    <!-- Beban Barbel Kiri -->
+    <path
+        android:fillColor="@color/TextGold"
+        android:pathData="M24,42 L31,42 L31,64 L24,64 Z" />
+    <path
+        android:fillColor="@color/ButtonBlue"
+        android:pathData="M31,45 L35,45 L35,61 L31,61 Z" />
+
+    <!-- Beban Barbel Kanan -->
+    <path
+        android:fillColor="@color/TextGold"
+        android:pathData="M69,42 L76,42 L76,64 L69,64 Z" />
+    <path
+        android:fillColor="@color/ButtonBlue"
+        android:pathData="M65,45 L69,45 L69,61 L65,61 Z" />
+</vector>
