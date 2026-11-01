@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
                 editor.putString("username", username)
                 editor.apply()
 
-                startActivity(Intent(this, BaseActivity::class.java))
+                startActivity(Intent(this, com.example.andika_3tia.Message.tutorial.TutorialMessageActivity::class.java))
                 finish()
             } else {
                 AlertDialog.Builder(this)

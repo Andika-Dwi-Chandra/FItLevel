@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -28,24 +29,28 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Pasang Toolbar di Fragment (Sesuai Modul Hal. 9)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "FITLEVEL"
             subtitle = "Selamat datang, Hero!"
         }
 
-        // Latihan Mandiri 5.1: Sapaan pengguna dari SharedPreferences
         val sharedPref = requireContext().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
         val username = sharedPref.getString("username", "Pengguna")
         binding.tvWelcome.text = "Halo, $username"
 
-        // Buka DetailActivity
+        // Listener 6 Tombol GridLayout Fokus Latihan
+        binding.btnGridChest.setOnClickListener { showGridToast("Chest Workout (+Strength)") }
+        binding.btnGridBack.setOnClickListener { showGridToast("Back Workout (+Strength)") }
+        binding.btnGridLegs.setOnClickListener { showGridToast("Legs Workout (+Strength & Agility)") }
+        binding.btnGridCardio.setOnClickListener { showGridToast("Cardio Run (+Agility & Stamina)") }
+        binding.btnGridCore.setOnClickListener { showGridToast("Core Plank (+Stamina)") }
+        binding.btnGridBoss.setOnClickListener { showGridToast("Boss Raid: 100 Burpees (+150 EXP)") }
+
         binding.btnDetail.setOnClickListener {
             startActivity(Intent(requireContext(), DetailActivity::class.java))
         }
 
-        // Tombol Logout dengan hapus SharedPreferences & Clear Back Stack
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Logout")
@@ -63,6 +68,10 @@ class HomeFragment : Fragment() {
                 }
                 .show()
         }
+    }
+
+    private fun showGridToast(menuName: String) {
+        Toast.makeText(requireContext(), "Fokus dipilih: $menuName", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

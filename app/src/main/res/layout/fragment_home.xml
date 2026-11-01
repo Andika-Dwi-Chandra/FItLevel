@@ -1,207 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/BackgroundDark"
+    android:fillViewport="true"
     tools:context=".Home.HomeFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/CardDark"
-        app:subtitleTextColor="@color/TextWhite"
-        app:titleTextColor="@color/TextGold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Kartu Profil Karakter RPG -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardProfile"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:cardBackgroundColor="@color/CardDark"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        android:paddingBottom="28dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- 1. Background Header Wave sesuai Modul Pertemuan 9 -->
+        <View
+            android:id="@+id/background_header"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:background="@drawable/bg_header_wave"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Toolbar dibuat transparan agar lekukan wave terlihat -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:subtitleTextColor="@color/TextWhite"
+            app:titleTextColor="@color/TextGold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Kartu Profil Karakter RPG -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardProfile"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/CardDark"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_logo_fitlevel" />
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_logo_fitlevel" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvWelcome"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_regular"
+                            android:text="Halo, Pengguna"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_regular"
+                            android:text="Level 5 • Warrior Muda"
+                            android:textColor="@color/TextGold"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="EXP: 720 / 1.000 (280 EXP menuju Level 6)"
+                    android:textColor="@color/TextWhite"
+                    android:textSize="12sp" />
 
-                    <!-- Latihan Mandiri 5.1: Sapaan Pengguna dari SharedPreferences -->
-                    <TextView
-                        android:id="@+id/tvWelcome"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_regular"
-                        android:text="Halo, Pengguna"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="8dp"
+                    android:max="1000"
+                    android:progress="720"
+                    android:progressBackgroundTint="@color/BackgroundDark"
+                    android:progressTint="@color/TextGold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_regular"
-                        android:text="Level 5 • Warrior Muda"
-                        android:textColor="@color/TextGold"
-                        android:textSize="13sp" />
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STRENGTH"
+                            android:textColor="@color/TextHint"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24"
+                            android:textColor="@color/TextGold"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STAMINA"
+                            android:textColor="@color/TextHint"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18"
+                            android:textColor="@color/TextGold"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AGILITY"
+                            android:textColor="@color/TextHint"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="21"
+                            android:textColor="@color/TextGold"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/nunito_regular"
-                android:text="EXP: 720 / 1.000 (280 EXP lagi menuju Level 6)"
+        <!-- Judul Seksi GridLayout -->
+        <TextView
+            android:id="@+id/tvGridTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nunito_regular"
+            android:text="FOKUS LATIHAN (PILIH ATRIBUT)"
+            android:textColor="@color/TextGold"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardProfile" />
+
+        <!-- 2. GridLayout 6 Tombol dalam 3 Kolom sesuai Modul Pertemuan 9 -->
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="14dp"
+            android:layout_marginTop="8dp"
+            app:columnCount="3"
+            app:useDefaultMargins="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvGridTitle">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGridChest"
+                android:backgroundTint="@color/CardDark"
+                android:text="Chest"
+                android:textAllCaps="false"
                 android:textColor="@color/TextWhite"
-                android:textSize="12sp" />
+                app:cornerRadius="10dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:strokeColor="@color/TextGold"
+                app:strokeWidth="1dp" />
 
-            <ProgressBar
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_marginTop="8dp"
-                android:max="1000"
-                android:progress="720"
-                android:progressBackgroundTint="@color/BackgroundDark"
-                android:progressTint="@color/TextGold" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGridBack"
+                android:backgroundTint="@color/CardDark"
+                android:text="Back"
+                android:textAllCaps="false"
+                android:textColor="@color/TextWhite"
+                app:cornerRadius="10dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:strokeColor="@color/TextGold"
+                app:strokeWidth="1dp" />
 
-            <!-- Baris Statistik RPG (STR, STA, AGI) sesuai Figma -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGridLegs"
+                android:backgroundTint="@color/CardDark"
+                android:text="Legs"
+                android:textAllCaps="false"
+                android:textColor="@color/TextWhite"
+                app:cornerRadius="10dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:strokeColor="@color/TextGold"
+                app:strokeWidth="1dp" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="STRENGTH"
-                        android:textColor="@color/TextHint"
-                        android:textSize="11sp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="24"
-                        android:textColor="@color/TextGold"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGridCardio"
+                android:backgroundTint="@color/CardDark"
+                android:text="Cardio"
+                android:textAllCaps="false"
+                android:textColor="@color/TextWhite"
+                app:cornerRadius="10dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:strokeColor="@color/TextGold"
+                app:strokeWidth="1dp" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="STAMINA"
-                        android:textColor="@color/TextHint"
-                        android:textSize="11sp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="18"
-                        android:textColor="@color/TextGold"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGridCore"
+                android:backgroundTint="@color/CardDark"
+                android:text="Core"
+                android:textAllCaps="false"
+                android:textColor="@color/TextWhite"
+                app:cornerRadius="10dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:strokeColor="@color/TextGold"
+                app:strokeWidth="1dp" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="AGILITY"
-                        android:textColor="@color/TextHint"
-                        android:textSize="11sp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="21"
-                        android:textColor="@color/TextGold"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGridBoss"
+                android:backgroundTint="@color/CardDark"
+                android:text="Boss Raid"
+                android:textAllCaps="false"
+                android:textColor="@color/TextGold"
+                app:cornerRadius="10dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:strokeColor="@color/TextGold"
+                app:strokeWidth="1dp" />
 
-    <Button
-        android:id="@+id/btnDetail"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/ButtonBlue"
-        android:fontFamily="@font/nunito_regular"
-        android:text="Mulai Latihan • Push-Up Blitz"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardProfile" />
+        </androidx.gridlayout.widget.GridLayout>
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/DangerRed"
-        android:fontFamily="@font/nunito_regular"
-        android:text="Log Out"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:cornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/btnDetail"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/ButtonBlue"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Mulai Latihan • Push-Up Blitz"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridMenu" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/DangerRed"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Log Out"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnDetail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

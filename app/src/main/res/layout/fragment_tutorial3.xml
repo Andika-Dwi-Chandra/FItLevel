@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tutorial_stage3"
+    android:padding="32dp">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_logo_fitlevel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/saintcarell"
+        android:gravity="center"
+        android:text="Buka Peti Harta &amp; Level Up!"
+        android:textColor="@color/TextGold"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nunito_regular"
+        android:gravity="center"
+        android:lineSpacingExtra="6dp"
+        android:text="Selesaikan 5 Quest untuk membuka Peti Harta Karun berisi Golden Gear dan buka gerakan latihan tingkat tinggi saat Level Up!"
+        android:textColor="@color/TextWhite"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMulaiQuest"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/ButtonBlue"
+        android:fontFamily="@font/nunito_regular"
+        android:text="Mulai Petualangan Sekarang"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/CardDark"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <androidx.appcompat.widget.Toolbar
@@ -21,6 +22,55 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:subtitleTextColor="@color/TextWhite"
             app:titleTextColor="@color/TextGold" />
+
+        <!-- ChipGroup Filter Kategori Quest sesuai Desain Figma & Modul Pertemuan 9 -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupQuest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="8dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSemua"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Semua"
+                android:textColor="@color/white"
+                app:chipBackgroundColor="@color/BackgroundDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHarian"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harian"
+                android:textColor="@color/white"
+                app:chipBackgroundColor="@color/BackgroundDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMingguan"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mingguan"
+                android:textColor="@color/white"
+                app:chipBackgroundColor="@color/BackgroundDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSpesial"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spesial"
+                android:textColor="@color/TextGold"
+                app:chipBackgroundColor="@color/BackgroundDark" />
+
+        </com.google.android.material.chip.ChipGroup>
 
     </com.google.android.material.appbar.AppBarLayout>
 

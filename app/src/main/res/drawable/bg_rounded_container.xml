@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Latar belakang kartu gelap FitLevel -->
+    <solid android:color="@color/CardDark" />
+    <!-- Garis tepi emas -->
+    <stroke
+        android:width="1.5dp"
+        android:color="@color/TextGold" />
+    <!-- Sudut membulat -->
+    <corners android:radius="10dp" />
+    <!-- Padding dalam -->
+    <padding
+        android:left="14dp"
+        android:top="12dp"
+        android:right="14dp"
+        android:bottom="12dp" />
+</shape>
